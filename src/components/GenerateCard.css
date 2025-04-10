@@ -1,0 +1,339 @@
+/* Base Styles */
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+.title {
+  color: #2c3e50;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Card Container */
+.card-container {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  height: 520px;
+  perspective: 1000px;
+  margin-bottom: 30px;
+}
+
+/* Card Sides */
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(145deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+  box-sizing: border-box;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+.front {
+  transform: rotateY(0deg);
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.card-container.flip .front {
+  transform: rotateY(180deg);
+}
+
+.card-container.flip .back {
+  transform: rotateY(360deg);
+}
+
+/* Card Header */
+.card-header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+
+.card-logo {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  margin: 0 auto 10px;
+  display: block;
+  object-fit: contain;
+}
+
+.card-header h3 {
+  font-size: 1.5rem;
+  margin: 10px 0 5px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Card Content */
+.card-content {
+  height: calc(100% - 140px);
+  overflow-y: auto;
+  padding: 10px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.card-content p {
+  margin: 8px 0;
+}
+
+/* Barcode */
+.barcode-container {
+  margin: 25px auto 15px;
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Family Table */
+.family-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 0.95rem;
+}
+
+.family-table th {
+  background-color: #2c3e50;
+  color: white;
+  font-weight: 500;
+}
+
+.family-table th, 
+.family-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Card Footer */
+.card-footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  padding: 10px 0;
+}
+
+.terms {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 15px;
+  line-height: 1.4;
+}
+
+/* Buttons */
+.button-group {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 350px;
+}
+
+.download-btn, 
+.flip-btn, 
+.profile-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  min-width: 160px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.download-btn {
+  background-color: #27ae60;
+  color: white;
+}
+
+.download-btn:hover {
+  background-color: #219653;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.download-btn:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.flip-btn {
+  background-color: #f39c12;
+  color: white;
+}
+
+.flip-btn:hover {
+  background-color: #e67e22;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.profile-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.profile-btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .card-wrapper {
+    padding: 15px;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-container {
+    height: 480px;
+    max-width: 320px;
+  }
+  
+  .card {
+    padding: 15px;
+  }
+  
+  .card-logo {
+    max-width: 180px;
+  }
+  
+  .card-header h3 {
+    font-size: 1.3rem;
+  }
+  
+  .card-content {
+    height: calc(100% - 130px);
+    font-size: 0.9rem;
+  }
+  
+  .family-table {
+    font-size: 0.85rem;
+  }
+  
+  .family-table th, 
+  .family-table td {
+    padding: 8px;
+  }
+  
+  .button-group {
+    margin-top: 20px;
+    gap: 12px;
+  }
+  
+  .download-btn, 
+  .flip-btn, 
+  .profile-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 400px) {
+  .card-container {
+    height: 460px;
+    max-width: 300px;
+  }
+  
+  .card-logo {
+    max-width: 160px;
+  }
+  
+  .card-content {
+    font-size: 0.85rem;
+  }
+  
+  .card-header h3 {
+    font-size: 1.2rem;
+  }
+  
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .download-btn, 
+  .flip-btn, 
+  .profile-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* Landscape Orientation */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  .card-wrapper {
+    padding: 10px;
+  }
+  
+  .card-container {
+    height: 380px;
+    max-width: 600px;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+  }
+  
+  .card-header {
+    width: 40%;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .card-content {
+    width: 60%;
+    height: auto;
+    padding-left: 20px;
+    overflow-y: visible;
+  }
+  
+  .card-logo {
+    max-width: 150px;
+    margin-bottom: 15px;
+  }
+  
+  .barcode-container {
+    margin: 15px auto;
+  }
+}
